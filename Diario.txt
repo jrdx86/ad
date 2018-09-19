@@ -1,0 +1,15 @@
+20180911
+ sudo update
+  instalador monodevelop y prerequisitos android-studio
+bitnami.com
+ descargar lamp
+instalar:marcar bit de ejecución. doble click y esperar
+ password: sistemas
+
+ejecutamos lamp
+ manager-linux-x64.run (en lampstack-....)
+ desde open phpmyadmin 
+       usuario: root
+       password: sistemas
+crear base de datos dbprueba
+en dbprueba crear categoria
