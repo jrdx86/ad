@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Ccategoria
+namespace CCategoria
 {
     public class Categoria
     {
@@ -14,7 +14,7 @@ namespace Ccategoria
 			this.nombre = nombre;
         }
 		public ulong Id{
-			get { return Id; }
+			get { return id; }
 			set { id = value; }
 		}
 
