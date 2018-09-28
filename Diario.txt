@@ -1,4 +1,4 @@
-20180911
+-20180911
  sudo update
   instalador monodevelop y prerequisitos android-studio
 bitnami.com
@@ -13,3 +13,12 @@ ejecutamos lamp
        password: sistemas
 crear base de datos dbprueba
 en dbprueba crear categoria
+
+-20180925
+Hemos creado los update, insert, delete. No podemos concatenar cadenas ya que nos pueden modificar
+la base de datos
+
+Creamos una ventana (CategoriaWindow) el objetivo sera incluir botones para añadir funciones como
+insertar datos nuevos desde otra ventana nueva. (ver>paneles>cuadro de herramientas)
+
+
