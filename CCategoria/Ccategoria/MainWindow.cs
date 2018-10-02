@@ -20,33 +20,35 @@ public partial class MainWindow : Gtk.Window
 
         App.Instance.DbConnection.Open();
 
+		TreeViewHelper.Fill(treeView, new string[] { "Id", "Nombre" }, CategoriaDao.Categorias);
+
         new CategoriaWindow();
 
 
         //insert();
         //update();
-        update(new Categoria(3, "categoría 3 " + DateTime.Now));
+        //update(new Categoria(3, "categoría 3 " + DateTime.Now));
 		//delete();
 
 		//TreeView.Fill(treeView, propertyNames, CategoriaDao.List);
 
-        CellRendererText cellRendererText = new CellRendererText();
+        //CellRendererText cellRendererText = new CellRendererText();
 
-        string[] properties = new string[] { "Id", "Nombre" };
+        //string[] properties = new string[] { "Id", "Nombre" };
 
-        foreach (string property in properties)
-        {
-            treeView.AppendColumn(property,cellRendererText,
-                delegate (TreeViewColumn tree_column, CellRenderer cell, TreeModel tree_model, TreeIter iter) {
-                    object model = tree_model.GetValue(iter, 0);
-                    object value = model.GetType().GetProperty(property).GetValue(model);
-                    cellRendererText.Text = value + "";
-                }
-            );
-        }
+        //foreach (string property in properties)
+        //{
+        //    treeView.AppendColumn(property,cellRendererText,
+        //        delegate (TreeViewColumn tree_column, CellRenderer cell, TreeModel tree_model, TreeIter iter) {
+        //            object model = tree_model.GetValue(iter, 0);
+        //            object value = model.GetType().GetProperty(property).GetValue(model);
+        //            cellRendererText.Text = value + "";
+        //        }
+        //    );
+        //}
 
-        ListStore listStore = new ListStore(typeof(object));
-        treeView.Model = listStore;
+        //ListStore listStore = new ListStore(typeof(object));
+        //treeView.Model = listStore;
 
         //IDbCommand dbCommand = App.Instance.DbConnection.CreateCommand();
         //dbCommand.CommandText = "select id, nombre from categoria order by id";

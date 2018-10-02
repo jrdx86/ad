@@ -12,11 +12,12 @@ namespace CCategoria
 			get {
 				List<Categoria> categorias = new List<Categoria>();
 				IDbCommand dbCommand = App.Instance.DbConnection.CreateCommand();
-                dbCommand.CommandText = "select id, nombre from categoria order by id";
+				dbCommand.CommandText = selectAll;
                 IDataReader dataReader = dbCommand.ExecuteReader();
                 while (dataReader.Read())
 					categorias.Add(new Categoria((ulong)dataReader["id"], (string)dataReader["nombre"]));
                 dataReader.Close();
+				return Categorias;
 			}
         }
     }
