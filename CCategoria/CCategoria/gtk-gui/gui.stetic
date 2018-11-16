@@ -5,7 +5,11 @@
   </configuration>
   <import>
     <widget-library name="../../../CSerpisGtk/CSerpisGtk/bin/Debug/CSerpisGtk.dll" />
-    <widget-library name="../bin/Debug/Ccategoria.exe" internal="true" />
+    <widget-library name="../../../CSerpisGtk/CSerpisGtk/bin/Debug/CSerpisGtk.dll" />
+    <widget-library name="../../../CSerpisGtk/CSerpisGtk/bin/Debug/CSerpisGtk.dll" />
+    <widget-library name="../../../CSerpisGtk/CSerpisGtk/bin/Debug/CSerpisGtk.dll" />
+    <widget-library name="../../../CSerpisGtk/CSerpisGtk/bin/Debug/CSerpisGtk.dll" />
+    <widget-library name="../bin/Debug/CCategoria.exe" internal="true" />
   </import>
   <widget class="Gtk.Window" id="MainWindow" design-size="400 300">
     <action-group name="Default">
@@ -42,7 +46,7 @@
           <widget class="Gtk.Toolbar" id="toolbar1">
             <property name="MemberName" />
             <property name="ShowArrow">False</property>
-            <node name="__gtksharp_108_Stetic_Editor_ActionToolbar" type="Toolbar">
+            <node name="toolbar1" type="Toolbar">
               <node type="Toolitem" action="newAction" />
               <node type="Toolitem" action="editAction" />
               <node type="Toolitem" action="deleteAction" />
@@ -79,7 +83,14 @@
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="CCategoria.CategoriaWindow" design-size="400 146">
+  <widget class="Gtk.Window" id="CCategoria.CategoriaWindow" design-size="358 62">
+    <action-group name="Default">
+      <action id="saveAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-save</property>
+      </action>
+    </action-group>
     <property name="MemberName" />
     <property name="Title" translatable="yes">CategoriaWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -88,9 +99,48 @@
         <property name="MemberName" />
         <property name="Spacing">6</property>
         <child>
-          <widget class="Gtk.Label" id="label1">
+          <widget class="Gtk.Table" id="table3">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">label1</property>
+            <property name="NColumns">2</property>
+            <property name="RowSpacing">6</property>
+            <property name="ColumnSpacing">6</property>
+            <child>
+              <widget class="Gtk.Entry" id="entryNombre">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="IsEditable">True</property>
+                <property name="InvisibleChar">•</property>
+              </widget>
+              <packing>
+                <property name="LeftAttach">1</property>
+                <property name="RightAttach">2</property>
+                <property name="AutoSize">True</property>
+                <property name="YOptions">Fill</property>
+                <property name="XExpand">True</property>
+                <property name="XFill">True</property>
+                <property name="XShrink">False</property>
+                <property name="YExpand">False</property>
+                <property name="YFill">True</property>
+                <property name="YShrink">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Label" id="label2">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">Nombre</property>
+              </widget>
+              <packing>
+                <property name="AutoSize">True</property>
+                <property name="XOptions">Fill</property>
+                <property name="YOptions">Fill</property>
+                <property name="XExpand">False</property>
+                <property name="XFill">True</property>
+                <property name="XShrink">False</property>
+                <property name="YExpand">False</property>
+                <property name="YFill">True</property>
+                <property name="YShrink">False</property>
+              </packing>
+            </child>
           </widget>
           <packing>
             <property name="Position">0</property>
@@ -100,43 +150,27 @@
           </packing>
         </child>
         <child>
-          <widget class="Gtk.HButtonBox" id="hbuttonbox4">
+          <widget class="Gtk.HButtonBox" id="hbuttonbox5">
             <property name="MemberName" />
-            <property name="Size">0</property>
+            <property name="Size">1</property>
             <property name="LayoutStyle">End</property>
+            <child>
+              <widget class="Gtk.Button" id="buttonSave">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="UseStock">True</property>
+                <property name="Type">StockItem</property>
+                <property name="StockId">gtk-save</property>
+                <property name="label">gtk-save</property>
+              </widget>
+              <packing>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
           </widget>
           <packing>
             <property name="Position">1</property>
-            <property name="AutoSize">False</property>
-            <property name="Expand">False</property>
-            <property name="Fill">False</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Gtk.Entry" id="entryNombre">
-            <property name="MemberName" />
-            <property name="CanFocus">True</property>
-            <property name="IsEditable">True</property>
-            <property name="InvisibleChar">•</property>
-          </widget>
-          <packing>
-            <property name="Position">2</property>
-            <property name="AutoSize">True</property>
-            <property name="Expand">False</property>
-            <property name="Fill">False</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Gtk.Button" id="buttonSave">
-            <property name="MemberName" />
-            <property name="CanFocus">True</property>
-            <property name="UseStock">True</property>
-            <property name="Type">StockItem</property>
-            <property name="StockId">gtk-save</property>
-            <property name="label">gtk-save</property>
-          </widget>
-          <packing>
-            <property name="Position">3</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>

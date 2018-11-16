@@ -1,2 +1,2 @@
 # ad
-Repositorio para el modulo Acceso a Datos del IES Serpis
+Repositorio para el módulo Acceso a Datos del IES Serpis
