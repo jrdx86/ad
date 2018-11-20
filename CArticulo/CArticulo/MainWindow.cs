@@ -22,7 +22,10 @@ public partial class MainWindow : Gtk.Window
 		TreeViewHelper.Fill(treeView, new string[] { "Id", "Nombre", "Precio", "Categoria"}, articuloDao.Enumerable);
 
 		newAction.Activated += delegate {
-            new ArticuloWindow(new Articulo());
+			//new ArticuloWindow(new Articulo());
+			Articulo articulo = new Articulo();
+			articulo.Nombre = "Articulo" + DateTime.Now.ToString();
+			articuloDao.Save(articulo);
         };
 
 		editAction.Activated += delegate {

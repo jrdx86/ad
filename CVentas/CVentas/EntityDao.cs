@@ -83,10 +83,23 @@ namespace Serpis.Ad
 				update(entity);
 		}
 
-		protected string insertSql = "insert {0}({1} values ({2})";
+		//protected string insertSql = "insert {0}({1} values ({2})"; Csv = Comma Separated Value
+		protected string insertSql = "insert into {0} ({1}) values ({2})";
 		protected void insert(TEntity entity) {
-			//insert into articulo (nombre, precio, categoria) values (@nombre, @precio,@categoria)
+			IDbCommand dbCommand = App.Instance.DbConnection.CreateCommand();
+			List<string> insertPropertyNames = entityPropertyNames.FindAll(item => item != idPropertyName);//expresion lambda
+			List<string> parameterNames = new List<string>();
+			insertPropertyNames.ForEach(item => parameterNames.Add("@" + item));
+			string insertFieldNamesCsV = string.Join(", ", insertPropertyNames).ToLower();
+			string parameterNamesCsv = string.Join(", ", parameterNames);
 			string tableName = entityType.Name.ToLower();
+			dbCommand.CommandText = string.Format(insertSql,tableName,insertFieldNamesCsV,parameterNamesCsv);
+            //DbCommandHelper.AddParameter(dbCommand, "nombre", categoria.Nombre);
+			foreach(string propertyName in insertPropertyNames){
+				object value = entityType.GetProperty(propertyName).GetValue(entity);
+				DbCommandHelper.AddParameter(dbCommand, propertyName, value);
+			}
+            dbCommand.ExecuteNonQuery();
 
         }
 
