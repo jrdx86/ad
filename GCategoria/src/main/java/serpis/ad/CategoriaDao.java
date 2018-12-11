@@ -3,7 +3,7 @@ package serpis.ad;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
-
+//interaccion con base de datos
 public class CategoriaDao {
 	
 	private static String insertSql = "insert into categoria (nombre) values (?)";

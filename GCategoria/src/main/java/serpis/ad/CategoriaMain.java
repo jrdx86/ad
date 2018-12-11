@@ -8,18 +8,30 @@ import java.util.ArrayList;
 
 public class CategoriaMain {
 	
-	
+	@FunctionalInterface
+	interface DaoAction {
+		void execute() throws SQLException;
+}
     private static boolean exit = false;
 	public static void main(String[] args) throws SQLException {
 		App.getInstance().setConnection(DriverManager.getConnection("jdbc:mysql;/localhost/dbprueba","root","sistemas"));
 		Menu.create("Menú Categoría")
-		.exitWhen("0 - Salir")
-		.add("1 - Nuevo", CategoriaMain::nuevo)
-		.add("2 - Editar", CategoriaMain::editar)
-		.loop(); 
+		.add("\t1 - Nuevo", () -> tryAction(CategoriaMain::nuevo, "No se ha podido insertar."))
+		.add("\t2 - Editar", () -> tryAction(CategoriaMain::editar, "No se ha podido modificar"))
+		.add("\t3 - Eliminar", () -> tryAction(CategoriaMain::eliminar, "No se ha podido eliminar"))
+		.add("\t4 - Consultar", () -> tryAction(CategoriaMain::consultar, "No se ha podido realizar la consulta"))
+		.add("\t5 - Listar", () -> tryAction(CategoriaMain::listar, "No se ha podido realizar la consulta"))
+		.exitWhen("\t0 - Salir")
+		.loop();		
 		App.getInstance().getConnection().close();
-	}
-	
+}
+	public static void tryAction(DaoAction daoAction, String errorMessage) {
+		try {
+			daoAction.execute();
+		} catch (SQLException ex) {
+			System.out.println(errorMessage);
+		}
+}
 	public static void nuevo() throws SQLException {
 		Categoria categoria = new Categoria();
 		CategoriaConsole.newCategoria(categoria);
