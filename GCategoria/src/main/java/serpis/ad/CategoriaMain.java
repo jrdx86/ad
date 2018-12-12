@@ -53,8 +53,8 @@ public class CategoriaMain {
 	
 	public static void eliminar() throws SQLException {
 		long id = CategoriaConsole.getId();
-		int filasBorradas = CategoriaDao.delete(id);
-			;
+		if (CategoriaConsole.deleteConfirm())
+			CategoriaDao.delete(id);
 	}
 	
 	public static void consultar() throws SQLException {

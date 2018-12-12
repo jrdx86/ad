@@ -24,6 +24,9 @@ public class CategoriaConsole {
 		
 	}
     public static void showList (List<Categoria> categoria) {
+    	for(Categoria categoria : categorias) {
+    		
+    	}
 		
 	}
     
