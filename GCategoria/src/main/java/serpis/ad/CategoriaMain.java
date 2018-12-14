@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class CategoriaMain {
@@ -14,7 +15,7 @@ public class CategoriaMain {
 }
     private static boolean exit = false;
 	public static void main(String[] args) throws SQLException {
-		App.getInstance().setConnection(DriverManager.getConnection("jdbc:mysql;/localhost/dbprueba","root","sistemas"));
+		App.getInstance().setConnection(DriverManager.getConnection("jdbc:mysql://localhost/dbprueba","root","sistemas"));
 		Menu.create("Menú Categoría")
 		.add("\t1 - Nuevo", () -> tryAction(CategoriaMain::nuevo, "No se ha podido insertar."))
 		.add("\t2 - Editar", () -> tryAction(CategoriaMain::editar, "No se ha podido modificar"))
@@ -34,7 +35,6 @@ public class CategoriaMain {
 }
 	public static void nuevo() throws SQLException {
 		Categoria categoria = new Categoria();
-		CategoriaConsole.newCategoria(categoria);
 		CategoriaDao.save(categoria);
 		
 	}
