@@ -43,7 +43,7 @@ public class CategoriaMain {
 		long id = CategoriaConsole.getId();
 		Categoria categoria = CategoriaDao.load(id);
 		if(categoria == null) {
-			CategoriaConsole.idNotExists();
+			CategoriaConsole.showIdNotExists();
 			return;
 		}
 		CategoriaConsole.editCategoria(categoria);

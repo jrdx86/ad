@@ -31,4 +31,7 @@ public class ScannerHelper {
 		}
 		}
 	}
+//	public static String getString (String st) {
+//		
+//	}
 }
